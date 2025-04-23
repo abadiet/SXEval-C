@@ -1,0 +1,3 @@
+[submodule "lib/sfsexp"]
+	path = lib/sfsexp
+	url = git@github.com:mjsottile/sfsexp.git
