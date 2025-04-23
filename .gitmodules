@@ -1,3 +1,6 @@
 [submodule "lib/sfsexp"]
 	path = lib/sfsexp
 	url = git@github.com:mjsottile/sfsexp.git
+[submodule "lib/uthash"]
+	path = lib/uthash
+	url = git@github.com:troydhanson/uthash.git
