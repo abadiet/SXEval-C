@@ -1,6 +1,8 @@
 #ifndef SXEVAL_EXAMPLES_BASIC_SETUP_H
 #define SXEVAL_EXAMPLES_BASIC_SETUP_H
 
+#include "sexp.h"
+#include "cstring.h"
 #include "sxeval.h"
 #include "context.h"
 #include "operator.h"
@@ -9,6 +11,7 @@
 
 #define FREE()                                                                 \
     destroy_sexp(exp);                                                         \
+    sxeval_free(&sxeval);                                                      \
     sxeval_free_operators(&ops);                                               \
     sxeval_free_context(&ctx);                                                 \
     sexp_cleanup();
@@ -30,5 +33,15 @@
         FREE()                                                                 \
         return 1;                                                              \
     }
+
+void print_exp(sexp_t *exp);
+
+void print_exp(sexp_t *exp) {
+    CSTRING *parsed;
+    parsed = snew(BUFSIZ);
+    print_sexp_cstr(&parsed, exp, BUFSIZ);
+    printf("Parsed expression: %s\n", toCharPtr(parsed));
+    sdestroy(parsed);
+}
 
 #endif /* SXEVAL_EXAMPLES_BASIC_SETUP_H */

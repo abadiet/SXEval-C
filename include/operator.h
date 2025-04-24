@@ -5,7 +5,7 @@
 #include "uthash.h"
 
 struct operator {
-    const char *name;
+    char *name;
     int arityMin, arityMax;
     double (*f)(int, double*);
     UT_hash_handle hh;
