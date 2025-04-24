@@ -1,3 +1,4 @@
+#include "setup.h"
 #include "sexp.h"
 #include "sxeval.h"
 #include "context.h"
@@ -13,6 +14,14 @@ double add(int argc, double *args) {
     return sum;
 }
 
+double mult(int argc, double *args) {
+    double m = 1;
+    for (int i = 0; i < argc; i++) {
+        m *= args[i];
+    }
+    return m;
+}
+
 int main(int argc, char *argv[]) {
     sexp_t* exp;
     context_t ctx;
@@ -26,27 +35,13 @@ int main(int argc, char *argv[]) {
     }
 
     exp = parse_sexp(argv[1], strlen(argv[1]));
-
     ops = sxeval_init_operators();
-    res = sxeval_add_operator(&ops, "+", 2, SXEVAL_NO_LIMIT, add);
-    if (res != SXEVAL_NO_ERROR) {
-        fprintf(stderr, "Error adding operator: %s\n",
-            sxeval_error_to_string(res));
-        destroy_sexp(exp);
-        sxeval_free_operators(&ops);
-        return 1;
-    }
-
     ctx = sxeval_init_context();
-    res = sxeval_add_variable(&ctx, "x", 10.0);
-    if (res != SXEVAL_NO_ERROR) {
-        fprintf(stderr, "Error adding variable: %s\n",
-            sxeval_error_to_string(res));
-        destroy_sexp(exp);
-        sxeval_free_operators(&ops);
-        sxeval_free_context(&ctx);
-        return 1;
-    }
+
+    ADD_OP("+", 2, SXEVAL_NO_LIMIT, add)
+    ADD_OP("*", 2, SXEVAL_NO_LIMIT, mult)
+
+    ADD_VAR("x", 5.0)
 
     res = sxeval_evaluate(exp, ops, ctx, &result);
     if (res != SXEVAL_NO_ERROR) {
@@ -60,9 +55,6 @@ int main(int argc, char *argv[]) {
 
     printf("Result: %lf\n", result);
 
-    destroy_sexp(exp);
-    sexp_cleanup();
-    sxeval_free_operators(&ops);
-    sxeval_free_context(&ctx);
+    FREE()
     return 0;
 }
