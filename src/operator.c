@@ -1,4 +1,4 @@
-#include "operator.h"
+#include "sxeval/operator.h"
 
 operators_t sxeval_init_operators(void) {
     return NULL;

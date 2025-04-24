@@ -1,7 +1,7 @@
 #ifndef SXEVAL_CONTEXT_H
 #define SXEVAL_CONTEXT_H
 
-#include "error.h"
+#include "sxeval/error.h"
 #include "uthash.h"
 
 struct variable {

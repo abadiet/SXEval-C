@@ -41,7 +41,7 @@ foreach(SUBDIR ${SUBDIRS})
 			)
 
 			# Link Libraries
-			target_link_libraries(${TARGET_NAME} PRIVATE SXEval)
+			target_link_libraries(${TARGET_NAME} PRIVATE sxeval)
         endif()
     endif()
 endforeach()

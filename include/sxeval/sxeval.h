@@ -1,10 +1,10 @@
 #ifndef SXEVAL_SXEVAL_H
 #define SXEVAL_SXEVAL_H
 
-#include "operator.h"
-#include "context.h"
+#include "sxeval/operator.h"
+#include "sxeval/context.h"
 #include "sexp.h"
-#include "error.h"
+#include "sxeval/error.h"
 #include <stdbool.h>
 
 #define SXEVAL_NO_LIMIT -1

@@ -3,10 +3,10 @@
 
 #include "sexp.h"
 #include "cstring.h"
-#include "sxeval.h"
-#include "context.h"
-#include "operator.h"
-#include "error.h"
+#include "sxeval/sxeval.h"
+#include "sxeval/context.h"
+#include "sxeval/operator.h"
+#include "sxeval/error.h"
 #include <stdio.h>
 
 #define FREE()                                                                 \

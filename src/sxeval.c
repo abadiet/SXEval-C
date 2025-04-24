@@ -1,4 +1,4 @@
-#include "sxeval.h"
+#include "sxeval/sxeval.h"
 
 #ifdef SXEVAL_DEBUG
 #define DEBUG_PRINT(...) printf(__VA_ARGS__)

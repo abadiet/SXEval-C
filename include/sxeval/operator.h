@@ -1,7 +1,7 @@
 #ifndef SXEVAL_OPERATOR_H
 #define SXEVAL_OPERATOR_H
 
-#include "error.h"
+#include "sxeval/error.h"
 #include "uthash.h"
 
 struct operator {

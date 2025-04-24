@@ -1,9 +1,9 @@
 #include "setup.h"
 #include "sexp.h"
-#include "sxeval.h"
-#include "context.h"
-#include "operator.h"
-#include "error.h"
+#include "sxeval/sxeval.h"
+#include "sxeval/context.h"
+#include "sxeval/operator.h"
+#include "sxeval/error.h"
 #include <stdio.h>
 
 double add(int n, double *args);

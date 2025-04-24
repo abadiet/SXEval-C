@@ -1,4 +1,4 @@
-#include "error.h"
+#include "sxeval/error.h"
 
 const char *sxeval_error_to_string(sxeval_error_t error) {
     switch (error) {

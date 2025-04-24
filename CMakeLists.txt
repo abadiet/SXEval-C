@@ -6,9 +6,7 @@ option(UPDATE_SUBMODULES "Update submodules" ON)
 option(SXEVAL_DEBUG "Debug mode" OFF)
 
 # Project
-project(SXEval C)
-
-message(STATUS "Compiler ID: ${CMAKE_C_COMPILER_ID}")
+project(sxeval C)
 
 # Download/Update librairies if needed
 if (UPDATE_SUBMODULES)
