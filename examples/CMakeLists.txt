@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.10)
 
 file(GLOB SUBDIRS RELATIVE ${CMAKE_SOURCE_DIR} */)
-foreach(subdir ${SUBDIRS})
-    if (IS_DIRECTORY ${CMAKE_SOURCE_DIR}/${subdir})
-        file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/${subdir}/*.c
-			${CMAKE_SOURCE_DIR}/${subdir}/*.h)
+foreach(SUBDIR ${SUBDIRS})
+    if (IS_DIRECTORY ${CMAKE_SOURCE_DIR}/${SUBDIR})
+        file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/${SUBDIR}/*.c
+			${CMAKE_SOURCE_DIR}/${SUBDIR}/*.h)
         if (SOURCES)
-            string(REPLACE "/" "_" target_name ${subdir})
-			message(STATUS "Adding example: ${target_name}")
+            string(REPLACE "/" "_" TARGET_NAME ${SUBDIR})
+			message(STATUS "Adding example: ${TARGET_NAME}")
 
 			# Executable
-            add_executable(${target_name} ${SOURCES})
+            add_executable(${TARGET_NAME} ${SOURCES})
 
 			# Flags
-			target_compile_options(${target_name} PRIVATE
+			target_compile_options(${TARGET_NAME} PRIVATE
 			$<$<C_COMPILER_ID:MSVC>:/W4 /WX>
 			$<$<C_COMPILER_ID:Clang>:-O3 -Wall -Wextra -Werror -Wfloat-equal
 				-Wundef -Wcast-align -Wwrite-strings -Wconversion
@@ -36,7 +36,7 @@ foreach(subdir ${SUBDIRS})
 			)
 
 			# Link Libraries
-			target_link_libraries(${target_name} PRIVATE SXEval)
+			target_link_libraries(${TARGET_NAME} PRIVATE SXEval)
         endif()
     endif()
 endforeach()
