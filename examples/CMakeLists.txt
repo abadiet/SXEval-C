@@ -30,7 +30,7 @@ foreach(SUBDIR ${SUBDIRS})
 					-Wconditional-uninitialized -Wassign-enum
 					-Wunused-exception-parameter -Wcovered-switch-default
 					-Wno-error=padded ${FLAGS_FIX_LIB}>
-				$<$<C_COMPILER_ID:Gnu>:-O3 -Wall -Wextra -Werror -Wfloat-equal
+				$<$<C_COMPILER_ID:GNU>:-O3 -Wall -Wextra -Werror -Wfloat-equal
 					-Wundef -Wcast-align -Wwrite-strings -Wconversion
 					-Wunreachable-code -Wpedantic -Wshadow -Wwrite-strings
 					-Wcast-qual -Wstrict-aliasing -Wpointer-arith -Wformat=2

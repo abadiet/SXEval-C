@@ -5,8 +5,11 @@ option(BUILD_EXAMPLES "Build examples" ON)
 option(UPDATE_SUBMODULES "Update submodules" ON)
 option(SXEVAL_DEBUG "Debug mode" OFF)
 
+
 # Project
 project(SXEval C)
+
+message(STATUS "Compiler ID: ${CMAKE_C_COMPILER_ID}")
 
 # Download/Update librairies if needed
 if (UPDATE_SUBMODULES)
@@ -55,7 +58,7 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 		-Wrange-loop-analysis -Wcomma -Wmove -Wconditional-uninitialized
 		-Wassign-enum -Wunused-exception-parameter -Wcovered-switch-default
 		-Wno-error=padded ${FLAGS_FIX_LIB}>
-	$<$<C_COMPILER_ID:Gnu>:-O3 -Wall -Wextra -Werror -Wfloat-equal -Wundef
+	$<$<C_COMPILER_ID:GNU>:-O3 -Wall -Wextra -Werror -Wfloat-equal -Wundef
 		-Wcast-align -Wwrite-strings -Wconversion -Wunreachable-code -Wpedantic
 		-Wshadow -Wwrite-strings -Wcast-qual -Wstrict-aliasing -Wpointer-arith
 		-Wformat=2 -Wextra-semi -Wmissing-prototypes -Wimplicit-fallthrough
