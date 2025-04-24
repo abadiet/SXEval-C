@@ -20,5 +20,7 @@ const char *sxeval_error_to_string(sxeval_error_t error) {
             return "Out of memory";
         case SXEVAL_INVALID_USE_OF_OPERATOR:
             return "Invalid use of operator";
+        default:
+            return "Unknown error";
     }
 }
