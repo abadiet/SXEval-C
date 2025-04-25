@@ -1,5 +1,5 @@
 # SXEval
-S-expression interpreter
+Original C library of [SXEval](https://github.com/abadiet/SXEval)
 
 ## Usage
 ```bash
