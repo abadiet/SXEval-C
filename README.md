@@ -1,4 +1,4 @@
-# SXEval
+# SXEval-C
 Original C library of [SXEval](https://github.com/abadiet/SXEval)
 
 ## Usage
