@@ -1,5 +1,7 @@
 # SXEval-C
-Original C library of [SXEval](https://github.com/abadiet/SXEval)
+S-expression interpreter library. 
+> [!WARNING]
+> This project has been moved to [SXEval](https://github.com/abadiet/SXEval).
 
 ## Usage
 ```bash
